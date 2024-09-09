@@ -1,0 +1,9 @@
+{
+    "navbar": {
+        "start": "Start",
+        "schedule": "Schedule",
+        "contact": "Contact us",
+        "about": "About us",
+        "location": "Location"
+    }
+}
