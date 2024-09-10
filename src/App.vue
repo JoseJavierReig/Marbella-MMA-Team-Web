@@ -9,6 +9,21 @@
   export default ({
     components:  {
       NavBar
+    },
+    created () {
+      this.translateTexts()
+    },
+    methods: {
+      // Traduce los textos de la web
+      translateTexts () {
+        const availableLocales = this.$i18n.availableLocales
+        const usersLanguage = window.navigator.language
+        if (availableLocales.includes(usersLanguage.slice(0, 2))) {
+          this.$i18n.locale = usersLanguage.slice(0, 2)
+        } else {
+          this.$i18n.locale = 'en'
+        }
+      }
     }
   })
 </script>
@@ -28,5 +43,17 @@
 #view {
   padding: 20px;
   margin-top: 10vh;
+}
+body::-webkit-scrollbar {
+  width: 2px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0f0a25;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: yellow;
+  border-radius: 20px;
 }
 </style>

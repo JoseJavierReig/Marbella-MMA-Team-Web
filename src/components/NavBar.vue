@@ -71,7 +71,6 @@
       // Mueve la posicion del SideBar
       moveSideBar () {
         let className = ''
-        console.log(this.sidebar)
         if (this.sidebar) {
           className = 'sidebarMove'
         }
