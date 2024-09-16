@@ -11,7 +11,7 @@
       NavBar
     },
     created () {
-      this.translateTexts()
+      // this.translateTexts()
     },
     methods: {
       // Traduce los textos de la web

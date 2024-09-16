@@ -5,5 +5,22 @@
         "contact": "Contactanos",
         "about": "Sobre nosotros",
         "location": "Localización"
+    },
+    "languages": {
+        "es": "Español",
+        "en": "Ingles"
+    },
+    "start": {
+        "intro": "Marbella MMA Team no es solo un grupo de luchadores; somos una familia unida por un propósito común: superar límites, alcanzar la excelencia y conquistar el octágono. Cada miembro del equipo, desde los atletas hasta los entrenadores, comparte un compromiso inquebrantable con la preparación, el trabajo en equipo y la superación personal."
+    },
+    "about": {
+        "eme": "Emeterio comenzó su carrera en el MMA como competidor, donde demostró habilidades excepcionales y un coraje admirable en el octágono. Su experiencia como luchador le ha proporcionado una perspectiva única y valiosa, entendiendo de primera mano las demandas y desafíos del deporte. Hoy, Emeterio ha dirigido su energía y entusiasmo hacia el entrenamiento, dedicando su tiempo y esfuerzo a formar la próxima generación de campeones. Su objetivo es claro y apasionado: ayudar a cada uno de sus peleadores a alcanzar sus sueños y a superar sus propios límites. Con un enfoque centrado en el desarrollo integral, no solo enseña técnicas avanzadas, sino que también inspira a sus alumnos a adoptar una mentalidad de campeón tanto dentro como fuera del octágono.",
+        "pete": "Como grappling coach del Marbella MMA Team, Pete no solo enseña técnicas avanzadas, sino que también transmite una filosofía de dedicación, precisión y adaptabilidad. Su enfoque meticuloso asegura que cada luchador entienda y aplique las técnicas con eficacia, transformando la habilidad técnica en una ventaja decisiva durante los combates. El compromiso de Pete con el desarrollo de sus alumnos es evidente en cada sesión de entrenamiento. Su paciencia, conocimiento profundo y habilidad para motivar a los luchadores aseguran que cada miembro del equipo adquiera una base sólida en grappling, preparándolos para enfrentarse a cualquier oponente con confianza y destreza. Marbella MMA Team se siente honrado de contar con Pete como parte fundamental de su cuerpo técnico. Su experiencia y dedicación juegan un papel crucial en el éxito y el crecimiento continuo del equipo, y estamos emocionados de ver cómo su influencia sigue contribuyendo al desarrollo de nuestros futuros campeones.",
+        "services": {
+            "groups": "En Marbella MMA Team, nuestras clases grupales están diseñadas para ofrecer una experiencia de entrenamiento dinámica, inclusiva y altamente efectiva. Ya seas un principiante entusiasta o un luchador experimentado, nuestras sesiones grupales te brindarán la oportunidad de mejorar tus habilidades, incrementar tu condición física y formar parte de la familia Marbella MMA team",
+            "privates": "En Marbella MMA Team, ofrecemos clases privadas diseñadas para proporcionarte una atención personalizada y un entrenamiento adaptado a tus necesidades específicas. Si buscas mejorar rápidamente tus habilidades, recibir instrucción uno a uno o trabajar en áreas específicas de tu técnica, nuestras clases privadas son la opción perfecta.",
+            "conditioning": "En Marbella MMA Team, entendemos que el acondicionamiento físico es fundamental para el éxito en el MMA. Por eso, nuestras clases de acondicionamiento físico están diseñadas para maximizar tu rendimiento, mejorar tu resistencia y preparar tu cuerpo para los desafíos del octágono.",
+            "sparrings": "En Marbella MMA Team, las sesiones de sparring son una parte esencial del entrenamiento, diseñadas para ofrecer a nuestros luchadores una oportunidad única de aplicar sus habilidades en un entorno controlado y competitivo. El sparring es clave para mejorar la técnica, desarrollar estrategias y ganar experiencia valiosa en el octágono."
+        }
     }
 }

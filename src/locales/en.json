@@ -5,5 +5,9 @@
         "contact": "Contact us",
         "about": "About us",
         "location": "Location"
+    },
+    "languages": {
+        "es": "Spanish",
+        "en": "English"
     }
 }

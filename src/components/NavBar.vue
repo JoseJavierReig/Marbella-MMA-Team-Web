@@ -8,33 +8,24 @@
             </div>
             <!-- Seccion del menu de navegación -->
             <div class="nav-container">
+                <!-- Botón de sideBar -->
                 <v-btn class="btn-nav btn-side" @click="sidebar = true" text>
                     <v-icon>mdi-menu</v-icon>
                 </v-btn>
-                <div class="nav-item">
-                  <v-btn class="btn-nav" @click="navigate('start')" text>
-                    {{ $t('navbar.start') }}
+                <!-- Opciones de navegación -->
+                <div v-for="option in navOptions" :key="option" class="nav-item">
+                  <v-btn class="btn-nav" @click="navigate(option)" text>
+                    {{ $t(`navbar.${option}`) }}
                   </v-btn>
                 </div>
+                <!-- Selector de idiomas -->
                 <div class="nav-item">
-                  <v-btn class="btn-nav" @click="navigate('schedule')" text>
-                    {{ $t('navbar.schedule') }}
-                  </v-btn>
-                </div>
-                <div class="nav-item">
-                  <v-btn class="btn-nav" @click="navigate('contact')" text>
-                    {{ $t('navbar.contact') }}
-                  </v-btn>
-                </div>
-                <div class="nav-item">
-                  <v-btn class="btn-nav" @click="navigate('about')" text>
-                    {{ $t('navbar.about') }}
-                  </v-btn>
-                </div>
-                <div class="nav-item">
-                  <v-btn class="btn-nav" @click="navigate('location')" text>
-                    {{ $t('navbar.location') }}
-                  </v-btn>
+                  <v-select
+                    class="select-nav"
+                    :items="languages"
+                    v-model="language"
+                    dark />
+                  <img :src="changeFlag" class="icon" alt="flag">
                 </div>
             </div>
             <!-- Menu lateral -->
@@ -42,20 +33,18 @@
               <v-btn class="btn-nav btn-side-position" @click="sidebar = false" text>
                 <v-icon>mdi-close</v-icon>
               </v-btn>
-              <div class="sidebar-item">
-                <v-btn class="btn-nav btn-sidebar" @click="navigate('start')" text>{{ $t('navbar.start') }}</v-btn>
+              <div v-for="option in navOptions" :key="option" class="sidebar-item">
+                <v-btn class="btn-nav btn-sidebar" @click="navigate(option)" text>{{ $t(`navbar.${option}`) }}</v-btn>
               </div>
               <div class="sidebar-item">
-                <v-btn class="btn-nav btn-sidebar" @click="navigate('schedule')" text>{{ $t('navbar.schedule') }}</v-btn>
-              </div>
-              <div class="sidebar-item">
-                <v-btn class="btn-nav btn-sidebar" @click="navigate('contact')" text>{{ $t('navbar.contact') }}</v-btn>
-              </div>
-              <div class="sidebar-item">
-                <v-btn class="btn-nav btn-sidebar" @click="navigate('about')" text>{{ $t('navbar.about') }}</v-btn>
-              </div>
-              <div class="sidebar-item">
-                <v-btn class="btn-nav btn-sidebar" @click="navigate('location')" text>{{ $t('navbar.location') }}</v-btn>
+                <v-select
+                    class="select-nav"
+                    :items="languages"
+                    v-model="language"
+                    item-text="text"
+                    item-value="value"
+                    dark />
+                  <img :src="changeFlag" class="icon" alt="flag">
               </div>
             </div>
         </div>
@@ -64,10 +53,42 @@
 <script>
   export default ({
     name: 'NavBar',
+    computed: {
+      changeFlag () {
+        const flag = this.languages.find(item => item.value === this.language).value
+        let src = require(`@/assets/flags/${flag}.png`)
+        return src
+      }
+    },
     data: () => ({
-      sidebar: false
+      // Sidebar
+      sidebar: false,
+      // Opciones
+      navOptions: ['start', 'schedule', 'contact', 'about', 'location'],
+      // Lenguajes
+      languages: [
+        { text: null, value: 'es'},
+        { text: null, value: 'en'}
+      ],
+      language: 'es'
     }),
+    mounted() {
+      this.prepareSelectLanguage()
+    },
+    watch: {
+      language() {
+        this.changeLanguage()
+        this.prepareSelectLanguage()
+      }
+    },
     methods: {
+      // Prepara los textos del select de idiomas
+      prepareSelectLanguage () {
+        console.log(this.$t(`languages.${this.language}`))
+        this.languages.forEach(language => {
+          language.text = this.$t(`languages.${language.value}`)
+        })
+      },
       // Mueve la posicion del SideBar
       moveSideBar () {
         let className = ''
@@ -82,6 +103,10 @@
         if (this.$route.name !== name) {
           this.$router.push({name: name})
         }
+      },
+      // Cambia el idioma de la página
+      changeLanguage () {
+        this.$i18n.locale = this.language
       }
     }
   })
@@ -134,6 +159,16 @@
   }
   .nav-item {
     display: none;
+    position: relative;
+  }
+  .select-nav {
+    width: 150px !important;
+  }
+  .icon {
+    width: 20px;
+    position: absolute;
+    left: 80px;
+    top: 24px;
   }
   /* Sidebar */
   .sidebar-container {
@@ -167,11 +202,20 @@
     margin-bottom: 10px;
     display: flex;
     border-bottom: 1px solid #413d56;
+    position: relative;
+  }
+  .sidebar-item:last-child {
+    padding: 0 7px;
+    /* display: block; */
+    border: none;
+  }
+  .icon-side {
+    top: 28px;
   }
   .sidebarMove {
     right: 0;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 850px) {
     .sidebar-container, .btn-side {
       display: none !important;
     }
@@ -186,5 +230,25 @@
     }
   }
   @media (min-width: 1200px) {
+  }
+</style>
+<style>
+  .v-menu__content--fixed {
+    top: 414px !important;
+  }
+  .theme--light.v-list {
+    background: #14121D !important;
+  }
+  .v-list-item__title {
+    color: white;
+  }
+  .v-select__selection--comma {
+    font-size: 12px;
+    margin-botton: 0px !important;
+  }
+  @media (min-width: 850px) {
+    .v-menu__content--fixed {
+      top: 64px !important;
+    }
   }
 </style>
