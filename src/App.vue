@@ -11,7 +11,7 @@
       NavBar
     },
     created () {
-      // this.translateTexts()
+      this.translateTexts()
     },
     methods: {
       // Traduce los textos de la web
@@ -43,6 +43,7 @@
 #view {
   padding: 20px;
   margin-top: 10vh;
+  display: flex;
 }
 body::-webkit-scrollbar {
   width: 2px;
