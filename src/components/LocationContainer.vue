@@ -1,6 +1,5 @@
 <template>
   <div class="location-container">
-    <!-- <h2 class="location-title">{{ title }}</h2> -->
     <div class="location-info-container">
       <h2 class="location-title">{{ title }}</h2>
       <span class="location-info">
@@ -9,8 +8,30 @@
       </span>
       <span class="location-info">
         <v-icon class="icon" dark>mdi-map-marker</v-icon>
-        <span class="info-text">{{direction}}</span>
+        <span class="info-text">{{dir}}</span>
       </span>
+      <div class="location-schedule-container">
+        <div class="location-schedule">
+          <h2 class="location-schedule-title">{{ $t('location.where') }}</h2>
+          <div class="schedule-container">
+            <div class="schedule">
+              <h3 class="location-schedule-subtitle">{{ $t('location.morning') }}</h3>
+              <div class="schedule-day-container" v-for="item in morning" :key="item">
+                <span class="info-text schedule-text" >{{$t(`weekDays.${item.day}`)}}: </span>
+                <span class="info-text" >{{item.hour}}</span>
+              </div>
+            </div>
+            <div class="schedule">
+              <h3 class="location-schedule-subtitle">{{ $t('location.evening') }}</h3>
+              <div class="schedule-day-container" v-for="item in evening" :key="item">
+                <span class="info-text schedule-text" >{{$t(`weekDays.${item.day}`)}}: </span>
+                <span class="info-text" >{{item.hour}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <v-btn>horarios</v-btn>
+      </div>
     </div>
     <div class="location-map-container">
       <iframe
@@ -33,7 +54,9 @@
       reverse: Boolean,
       title: String,
       src: String,
-      direction: String
+      dir: String,
+      morning: Array,
+      evening: Array
     }
   }
 </script>
@@ -41,7 +64,7 @@
 <style scoped>
   /* Contenedores de las localizaciones */
   .location-container {
-    border: 1px solid white;
+    background-color: #14121D;
     width: 100%;
     min-height: 491px;
     height: 550px;
@@ -50,12 +73,10 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    transition: 2s all;
   }
   /* Informacion sobre la localizacion */
   .location-info-container {
     padding: 10px;
-    border: 1px solid white;
     height: 250px;
     margin-bottom: 20px;
     display: flex;
@@ -63,7 +84,7 @@
   }
   /* Titulo de la localizacion */
   .location-title {
-    font-size: 16px;
+    font-size: 24px;
     color: yellow;
     padding: 5px;
     text-align: start;
@@ -79,21 +100,75 @@
     display: inline-block;
     text-align: start;
   }
+  /* Información de los horarios por localización */
+  .location-schedule-container {
+    padding: 10px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .location-schedule {
+    display: none;
+  }
+  .location-schedule-title, .location-schedule-subtitle {
+    font-size: 24px;
+    color: yellow;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+  }
+  .location-schedule-subtitle {
+    font-size: 18px !important;
+    text-align: start;
+    padding: 0;
+  }
+  .schedule-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .schedule {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .schedule-text {
+    font-weight: bold;
+    margin-right: 10px;
+  }
   /* Mapa de la localizacion */
   .location-map-container {
-    border: 1px solid white;
     height: 250px;
   }
-  @media (min-width: 850px) {
+  @media (min-width: 1200px) {
     /* Contenedores de las localizaciones */
     .location-container {
       flex-direction: row;
       justify-content: space-between;
+      height: 400px;
     }
     /* Informacion sobre la localizacion */
-    .location-info-container, .location-map-container {
+    .location-info-container {
       height: 100%;
-      width: 47%;
+      width: 40%;
+    }
+    .location-map-container {
+      height: 100%;
+      width: 58%;
+    }
+    /* Información de los horarios por localización */
+    .location-schedule-container {
+      justify-content: flex-start;
+    }
+    .location-schedule {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 30px;
     }
   }
 </style>

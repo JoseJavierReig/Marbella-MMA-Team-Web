@@ -9,5 +9,21 @@
     "languages": {
         "es": "Spanish",
         "en": "English"
+    },
+    "weekDays": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+    },
+    "location": {
+        "real": "Río Amazonas St., no number, 29660 Marbella, Málaga",
+        "unit": "Unit 41, Industrial Estate Nueva Campana, 29660, Marbella, Málaga",
+        "where": "Where to find us",
+        "morning": "In the morning",
+        "evening": "In the evening"
     }
 }

@@ -10,6 +10,22 @@
         "es": "Español",
         "en": "Ingles"
     },
+    "weekDays": {
+        "monday": "Lunes",
+        "tuesday": "Martes",
+        "wednesday": "Miercoles",
+        "thursday": "Jueves",
+        "friday": "Viernes",
+        "saturday": "Sabado",
+        "sunday": "Domingo"
+    },
+    "location": {
+        "real": "C. Río Amazonas, s/n, 29660 Marbella, Málaga",
+        "unit": "Unit 41, Pol. Ind, Nueva Campana, 29660, Marbella, Málaga",
+        "where": "Donde encontrarnos",
+        "morning": "Por la mañana",
+        "evening": "Por la tarde"
+    },
     "start": {
         "intro": "Marbella MMA Team no es solo un grupo de luchadores; somos una familia unida por un propósito común: superar límites, alcanzar la excelencia y conquistar el octágono. Cada miembro del equipo, desde los atletas hasta los entrenadores, comparte un compromiso inquebrantable con la preparación, el trabajo en equipo y la superación personal."
     },

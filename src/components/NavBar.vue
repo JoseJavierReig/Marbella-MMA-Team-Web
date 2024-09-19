@@ -215,7 +215,7 @@
   .sidebarMove {
     right: 0;
   }
-  @media (min-width: 850px) {
+  @media (min-width: 1200px) {
     .sidebar-container, .btn-side {
       display: none !important;
     }
@@ -228,8 +228,6 @@
       padding: 7px 17px !important;
       margin: 0 10px;
     }
-  }
-  @media (min-width: 1200px) {
   }
 </style>
 <style>
@@ -246,7 +244,7 @@
     font-size: 12px;
     margin-botton: 0px !important;
   }
-  @media (min-width: 850px) {
+  @media (min-width: 1200px) {
     .v-menu__content--fixed {
       top: 64px !important;
     }
