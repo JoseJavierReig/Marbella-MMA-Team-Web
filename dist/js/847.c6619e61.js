@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkmarbella_mma_team_web"]=self["webpackChunkmarbella_mma_team_web"]||[]).push([[847],{7847:function(e,a,n){n.r(a),n.d(a,{default:function(){return c}});var l=function(){var e=this,a=e._self._c;return a("div",[e._v(" Contactanos ")])},t=[],u={},r=u,s=n(1656),_=(0,s.A)(r,l,t,!1,null,null,null),c=_.exports}}]);
-//# sourceMappingURL=847.c6619e61.js.map
