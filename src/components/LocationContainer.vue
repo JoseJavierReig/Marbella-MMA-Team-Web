@@ -11,26 +11,38 @@
         <span class="info-text">{{dir}}</span>
       </span>
       <div class="location-schedule-container">
-        <div class="location-schedule">
-          <h2 class="location-schedule-title">{{ $t('location.where') }}</h2>
-          <div class="schedule-container">
-            <div class="schedule">
-              <h3 class="location-schedule-subtitle">{{ $t('location.morning') }}</h3>
-              <div class="schedule-day-container" v-for="item in morning" :key="item">
-                <span class="info-text schedule-text" >{{$t(`weekDays.${item.day}`)}}: </span>
-                <span class="info-text" >{{item.hour}}</span>
-              </div>
-            </div>
-            <div class="schedule">
-              <h3 class="location-schedule-subtitle">{{ $t('location.evening') }}</h3>
-              <div class="schedule-day-container" v-for="item in evening" :key="item">
-                <span class="info-text schedule-text" >{{$t(`weekDays.${item.day}`)}}: </span>
-                <span class="info-text" >{{item.hour}}</span>
-              </div>
-            </div>
-          </div>
+        <h2 class="location-schedule-title">{{ $t('location.schedules') }}</h2>
+        <div class="location-schedule-table">
+          <table>
+            <thead>
+              <tr>
+                <th>
+                </th>
+                <th
+                  v-for="day in $weekdays"
+                  :key="day">
+                  {{$t(`weekDays.${day}`)}}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ $t('location.morning') }}</td>
+                <td 
+                  v-for="item in morning"
+                  :key="item"
+                  :class="getColorHour(name, item.hour)">{{ item.hour }}</td>
+              </tr>
+              <tr>
+                <td>{{ $t('location.evening') }}</td>
+                <td 
+                  v-for="item in evening"
+                  :key="item"
+                  :class="getColorHour(name, item.hour)">{{ item.hour }}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <v-btn>horarios</v-btn>
       </div>
     </div>
     <div class="location-map-container">
@@ -52,11 +64,26 @@
     name: 'LocationContainer',
     props: {
       reverse: Boolean,
+      name: String,
       title: String,
       src: String,
       dir: String,
       morning: Array,
       evening: Array
+    },
+    methods: {
+      getColorHour (name, dato) {
+        console.log(name)
+        let className = ''
+        if (dato) {
+          if (name === 'real') {
+            className = 'td-real'
+          } else {
+            className = 'td-unit'
+          }
+        }
+        return className
+      }
     }
   }
 </script>
@@ -102,42 +129,42 @@
   }
   /* Información de los horarios por localización */
   .location-schedule-container {
-    padding: 10px 30px;
+    padding: 10px 20px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  .location-schedule {
-    display: none;
-  }
-  .location-schedule-title, .location-schedule-subtitle {
+  .location-schedule-title{
     font-size: 24px;
     color: yellow;
     padding: 5px;
     text-align: center;
     width: 100%;
   }
-  .location-schedule-subtitle {
-    font-size: 18px !important;
-    text-align: start;
-    padding: 0;
+  /* Tabla de horarios */
+  .location-schedule-table {
+    display: none;
   }
-  .schedule-container {
+  table {
+    height: 50%;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    border: 1px white solid;
   }
-  .schedule {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  th {
+    padding: 3px;
+    font-size: 14px;
   }
-  .schedule-text {
-    font-weight: bold;
-    margin-right: 10px;
+  td{
+    padding: 0 1px;
+    font-size: 10px;
+  }
+  .td-unit {
+    background-color: #fe3d02;
+  }
+  .td-real {
+    background-color: #006940;
   }
   /* Mapa de la localizacion */
   .location-map-container {
@@ -160,15 +187,13 @@
       width: 58%;
     }
     /* Información de los horarios por localización */
-    .location-schedule-container {
-      justify-content: flex-start;
-    }
-    .location-schedule {
+    /* Tabla de horarios */
+    .location-schedule-table {
       width: 100%;
+      height: 100%;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: flex-start;
-      margin-bottom: 30px;
     }
   }
 </style>

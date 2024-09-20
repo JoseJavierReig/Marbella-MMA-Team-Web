@@ -18,6 +18,7 @@ const vuetify = new Vuetify({
 
 
 Vue.config.productionTip = false
+Vue.prototype.$weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
 
 new Vue({
   vuetify,
