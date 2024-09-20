@@ -1,4 +1,7 @@
 {
+    "general": {
+      "moreInfo": "Más información"
+    },
     "navbar": {
         "start": "Inicio",
         "schedule": "Horario",

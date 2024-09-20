@@ -4,7 +4,7 @@
       <h2 class="location-title">{{ title }}</h2>
       <span class="location-info">
         <v-icon class="icon" dark>mdi-phone</v-icon>
-        <span class="info-text">+34 606 707 909</span>
+        <span class="info-text">{{ number }}</span>
       </span>
       <span class="location-info">
         <v-icon class="icon" dark>mdi-map-marker</v-icon>
@@ -43,6 +43,11 @@
             </tbody>
           </table>
         </div>
+        <BtnInfo
+          :text="$t('general.moreInfo')"
+          :name="name"
+          :morning="morning"
+          :evening="evening"/>
       </div>
     </div>
     <div class="location-map-container">
@@ -60,6 +65,7 @@
 
   
 <script>
+  import BtnInfo from '@/components/BtnInfo'
   export default {
     name: 'LocationContainer',
     props: {
@@ -69,7 +75,11 @@
       src: String,
       dir: String,
       morning: Array,
-      evening: Array
+      evening: Array,
+      number: String
+    },
+    components:  {
+      BtnInfo
     },
     methods: {
       getColorHour (name, dato) {
@@ -104,7 +114,7 @@
   /* Informacion sobre la localizacion */
   .location-info-container {
     padding: 10px;
-    height: 250px;
+    height: 280px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -133,8 +143,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .location-schedule-title{
     font-size: 24px;

@@ -9,7 +9,8 @@
       :dir="location.dir"
       :reverse="location.reverse"
       :morning="location.morning"
-      :evening="location.evening" />
+      :evening="location.evening"
+      :number="number" />
   </div>
 </template>
 
@@ -60,7 +61,8 @@
           ],
           reverse: true
         }
-      ]
+      ],
+      number: '+34 606 707 909'
     }),
     created () {
       console.log(this.locations)
